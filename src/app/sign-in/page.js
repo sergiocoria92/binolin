@@ -4,8 +4,8 @@ import { useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 
 export default function SignInPage() {
-  const [email, setEmail] = useState("sergiocoria.my@gmail.com");
-  const [password, setPassword] = useState("1234567890");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleSignIn(e) {
