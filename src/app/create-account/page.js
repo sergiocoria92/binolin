@@ -10,8 +10,8 @@ function CreateAccountContent() {
   const isCoach = role === "coach";
 
   const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("sergiocoria.my@gmail.com");
-  const [password, setPassword] = useState("1234567890");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleCreateAccount(e) {
@@ -117,7 +117,7 @@ function CreateAccountContent() {
           </p>
 
           <h1 className="text-4xl font-bold tracking-tight">
-            {isCoach ? "Create coach account" : "Create your Voxae account"}
+            {isCoach ? "Create coach account" : "Create your Binolin account"}
           </h1>
 
           <p className="mt-4 text-lg text-slate-600">
@@ -133,7 +133,7 @@ function CreateAccountContent() {
             <label className="mb-2 block font-medium">Full name</label>
             <input
               type="text"
-              placeholder="Sergio Coria"
+              placeholder="Your name"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none"
