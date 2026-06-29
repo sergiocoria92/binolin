@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { supabase } from "@/lib/supabaseClient";
 
-export default function CoachCreateProfilePage() {
+function CoachCreateProfileContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -40,9 +40,7 @@ export default function CoachCreateProfilePage() {
         upsert: true,
       });
 
-    if (uploadError) {
-      throw uploadError;
-    }
+    if (uploadError) throw uploadError;
 
     const { data } = supabase.storage
       .from("coach-avatars")
@@ -134,21 +132,22 @@ export default function CoachCreateProfilePage() {
           <div>
             <label className="mb-2 block font-medium">Specialty</label>
             <select
-            value={specialty}
-            onChange={(e) => setSpecialty(e.target.value)}
-            className="w-full rounded-xl border p-3"
+              value={specialty}
+              onChange={(e) => setSpecialty(e.target.value)}
+              className="w-full rounded-xl border p-3"
             >
-            <option value="Conversation">Conversation</option>
-            <option value="Job Interview">Job Interview</option>
-            <option value="Business English">Business English</option>
-            <option value="Travel English">Travel English</option>
-            <option value="Pronunciation">Pronunciation</option>
-            <option value="General English">General English</option>
+              <option value="Conversation">Conversation</option>
+              <option value="Job Interview">Job Interview</option>
+              <option value="Business English">Business English</option>
+              <option value="Travel English">Travel English</option>
+              <option value="Pronunciation">Pronunciation</option>
+              <option value="General English">General English</option>
             </select>
           </div>
+
           <p className="mt-1 text-sm text-slate-500">
             Choose the main area where you feel most comfortable helping learners.
-            </p>
+          </p>
 
           <div className="grid gap-5 md:grid-cols-2">
             <div>
@@ -157,9 +156,9 @@ export default function CoachCreateProfilePage() {
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
                 className="w-full rounded-xl border p-3"
-                >
+              >
                 <option value="United States">United States</option>
-                </select>
+              </select>
             </div>
 
             <div>
@@ -168,7 +167,7 @@ export default function CoachCreateProfilePage() {
                 value={state}
                 onChange={(e) => setState(e.target.value)}
                 className="w-full rounded-xl border p-3"
-                >
+              >
                 <option>Alabama</option>
                 <option>Alaska</option>
                 <option>Arizona</option>
@@ -219,12 +218,14 @@ export default function CoachCreateProfilePage() {
                 <option>West Virginia</option>
                 <option>Wisconsin</option>
                 <option>Wyoming</option>
-                </select>
+              </select>
             </div>
           </div>
 
           <div>
-            <label className="mb-2 block font-medium">Topics you can teach</label>
+            <label className="mb-2 block font-medium">
+              Topics you can teach
+            </label>
             <input
               value={topics}
               onChange={(e) => setTopics(e.target.value)}
@@ -267,7 +268,9 @@ export default function CoachCreateProfilePage() {
               checked={isAvailable}
               onChange={(e) => setIsAvailable(e.target.checked)}
             />
-            <span className="font-medium">Available for automatic matching</span>
+            <span className="font-medium">
+              Available for automatic matching
+            </span>
           </label>
 
           <button
@@ -279,5 +282,13 @@ export default function CoachCreateProfilePage() {
         </form>
       </div>
     </main>
+  );
+}
+
+export default function CoachCreateProfilePage() {
+  return (
+    <Suspense fallback={<main className="p-8">Loading...</main>}>
+      <CoachCreateProfileContent />
+    </Suspense>
   );
 }
