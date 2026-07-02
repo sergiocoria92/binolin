@@ -8,7 +8,7 @@ export default function CoachWelcomePage() {
       <div className="max-w-lg text-center">
 
         <h1 className="text-4xl font-bold">
-          Become a Voxae Coach
+          Become a Binolin Coach
         </h1>
 
         <p className="mt-4 text-slate-600">

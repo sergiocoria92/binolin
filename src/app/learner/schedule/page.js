@@ -211,7 +211,7 @@ export default function LearnerSchedulePage() {
         <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-300">
-              Voxae Schedule
+              Binolin Schedule
             </p>
 
             <h1 className="mt-3 text-4xl font-bold">
@@ -219,7 +219,7 @@ export default function LearnerSchedulePage() {
             </h1>
 
             <p className="mt-2 text-slate-300">
-              Choose a time. Voxae will automatically match you with an available coach.
+              Choose a time. Binolin will automatically match you with an available coach.
             </p>
           </div>
 

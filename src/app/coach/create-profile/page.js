@@ -102,7 +102,7 @@ function CoachCreateProfileContent() {
         <h1 className="text-4xl font-bold">Create your Coach Profile</h1>
 
         <p className="mt-3 text-slate-300">
-          This profile helps Voxae match you automatically with learners.
+          This profile helps Binolin match you automatically with learners.
         </p>
 
         <form

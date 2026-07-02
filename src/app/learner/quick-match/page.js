@@ -19,7 +19,7 @@ export default function QuickMatchPage() {
           </h1>
 
           <p className="mt-4 text-lg text-slate-600">
-            Voxae will match you automatically based on your topic, preferred
+            Binolin will match you automatically based on your topic, preferred
             time, and coach availability.
           </p>
         </div>
@@ -39,7 +39,7 @@ export default function QuickMatchPage() {
             </div>
 
             <div className="rounded-2xl bg-white p-4">
-              ✅ Voxae assigns an available coach automatically
+              ✅ Binolin assigns an available coach automatically
             </div>
           </div>
 

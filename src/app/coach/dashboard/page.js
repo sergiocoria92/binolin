@@ -109,7 +109,7 @@ export default function CoachDashboardPage() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-300">
-              Voxae Coach
+              Binolin Coach
             </p>
 
             <h1 className="mt-3 text-4xl font-bold">

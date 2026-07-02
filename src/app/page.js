@@ -32,7 +32,7 @@ export default function Home() {
     <main className="min-h-screen bg-white text-slate-950">
       <section className="mx-auto flex min-h-screen max-w-6xl flex-col px-6 py-8">
         <nav className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold tracking-tight">Voxae</h1>
+          <h1 className="text-2xl font-bold tracking-tight">Binolin</h1>
 
           <div className="flex items-center gap-3">
             <button

@@ -36,7 +36,7 @@ export default function GoalsPage() {
     <main className="min-h-screen bg-white px-6 py-8 text-slate-950">
       <section className="mx-auto max-w-3xl">
         <a href="/" className="text-sm font-medium text-slate-500">
-          ← Back to Voxae
+          ← Back to Binolin
         </a>
 
         <div className="mt-10">
@@ -49,7 +49,7 @@ export default function GoalsPage() {
           </h1>
 
           <p className="mt-4 text-lg text-slate-600">
-            Choose what you want to practice. Voxae will recommend a coach and a
+            Choose what you want to practice. Binolin will recommend a coach and a
             session plan for you.
           </p>
         </div>

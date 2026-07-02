@@ -216,7 +216,7 @@ localStorage.removeItem("pendingBooking");
         <div className="mt-10">
           <h1 className="text-4xl font-bold">Sign in</h1>
           <p className="mt-3 text-slate-600">
-            Access your Voxae dashboard.
+            Access your Binolin dashboard.
           </p>
         </div>
 

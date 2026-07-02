@@ -186,7 +186,7 @@ async function completeSession() {
   if (!token) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-slate-950 text-white">
-        Connecting to Voxae Live Room...
+        Connecting to Binolin Live Room...
       </main>
     );
   }
@@ -209,7 +209,7 @@ async function completeSession() {
           <header className="mb-5 flex items-center justify-between">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-300">
-                Voxae Live Room
+                Binolin Live Room
               </p>
 
               <h1 className="mt-2 text-3xl font-black">

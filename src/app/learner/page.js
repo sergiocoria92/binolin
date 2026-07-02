@@ -293,7 +293,7 @@ function canStartSession(item) {
         <div className="mb-6 flex items-start justify-between">
           <div className="rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-2xl flex-1">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
-              Voxae Quest
+              Binolin Quest
             </p>
 
             <h1 className="mt-3 text-4xl font-black tracking-tight">
@@ -462,7 +462,7 @@ function canStartSession(item) {
       )
     ) : (
       <p className="mt-5 text-slate-600">
-        Choose a time and Voxae will match you with an available coach.
+        Choose a time and Binolin will match you with an available coach.
       </p>
     )}
 

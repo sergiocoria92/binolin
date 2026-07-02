@@ -173,7 +173,7 @@ export default function BookingPage() {
           </h1>
 
           <p className="mt-4 text-lg text-slate-600">
-            Voxae will automatically match you with an available coach.
+            Binolin will automatically match you with an available coach.
           </p>
         </div>
 

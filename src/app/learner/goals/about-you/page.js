@@ -16,7 +16,7 @@ export default function AboutYouPage() {
           </h1>
 
           <p className="mt-4 text-lg text-slate-600">
-            This helps Voxae recommend the right coach and session for your
+            This helps Binolin recommend the right coach and session for your
             level.
           </p>
         </div>
