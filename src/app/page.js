@@ -97,6 +97,18 @@ export default function Home() {
           </div>
         </nav>
 
+        <div className="relative z-10 mt-6 flex items-center justify-center gap-5 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-white/65 backdrop-blur md:hidden">
+          <a href="#how" className="hover:text-white">
+            {t.nav1}
+          </a>
+          <a href="#coaches" className="hover:text-white">
+            {t.nav2}
+          </a>
+          <a href="#pricing" className="hover:text-white">
+            {t.nav3}
+          </a>
+        </div>
+
         <div className="relative z-10 grid min-h-[78vh] items-center gap-10 pt-12 lg:grid-cols-[1fr_0.95fr] lg:pt-4">
           <div>
             <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/8 px-4 py-2 text-sm font-semibold text-white/75 backdrop-blur">
@@ -152,7 +164,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative mx-auto hidden h-[620px] w-full max-w-[560px] items-center justify-center lg:flex">
+          <div className="relative mx-auto flex h-[420px] w-full max-w-[560px] items-center justify-center lg:h-[620px]">
 
             {/* Círculo exterior */}
             <div className="absolute h-[520px] w-[520px] rounded-full border border-[#53ff68]/20 bg-[#39df4a]/5" />
@@ -163,18 +175,12 @@ export default function Home() {
             {/* Glow */}
             <div className="absolute h-[560px] w-[560px] rounded-full bg-[#39df4a]/10 blur-3xl" />
 
-            {/* Alien */}
+            {/* Alien */} 
             <img
-              src="/img/alien-tom.png"
-              alt="Alien"
-              className="
-                relative
-                z-20
-                h-[520px]
-                object-contain
-                drop-shadow-[0_20px_45px_rgba(0,255,120,0.35)]
-              "
-            />
+                src="/img/alien-tom.png"
+                alt="Alien"
+                className="relative z-20 h-[360px] object-contain drop-shadow-[0_20px_45px_rgba(0,255,120,0.35)] lg:h-[520px]"
+              />
 
             {/* Burbuja */}
             <div className="absolute bottom-24 right-0 z-30 rounded-3xl border border-white/10 bg-[#1f612d]/90 px-8 py-5 text-xl font-bold text-white backdrop-blur">
