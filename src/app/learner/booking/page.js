@@ -14,14 +14,37 @@ const days = [
 ];
 
 const times = [
-  "06:00", "06:30", "07:00", "07:30",
-  "08:00", "08:30", "09:00", "09:30",
-  "10:00", "10:30", "11:00", "11:30",
-  "12:00", "12:30", "13:00", "13:30",
-  "14:00", "14:30", "15:00", "15:30",
-  "16:00", "16:30", "17:00", "17:30",
-  "18:00", "18:30", "19:00", "19:30",
-  "20:00", "20:30", "21:00",
+  "06:00",
+  "06:30",
+  "07:00",
+  "07:30",
+  "08:00",
+  "08:30",
+  "09:00",
+  "09:30",
+  "10:00",
+  "10:30",
+  "11:00",
+  "11:30",
+  "12:00",
+  "12:30",
+  "13:00",
+  "13:30",
+  "14:00",
+  "14:30",
+  "15:00",
+  "15:30",
+  "16:00",
+  "16:30",
+  "17:00",
+  "17:30",
+  "18:00",
+  "18:30",
+  "19:00",
+  "19:30",
+  "20:00",
+  "20:30",
+  "21:00",
 ];
 
 const topics = [
@@ -51,7 +74,7 @@ export default function BookingPage() {
         JSON.stringify({
           topic,
           requested_day: requestedDay,
-          requested_time: requestedTime,  
+          requested_time: requestedTime,
           session_date: requestedDay,
           session_time: requestedTime,
         })
@@ -70,22 +93,22 @@ export default function BookingPage() {
       .maybeSingle();
 
     if (profileError || !profileData) {
-        await supabase.auth.signOut();
+      await supabase.auth.signOut();
 
-        localStorage.setItem(
-          "pendingBooking",
-          JSON.stringify({
-            topic,
-            requested_day: requestedDay,
-            requested_time: requestedTime,
-            session_date: requestedDay,
-            session_time: requestedTime,
-          })
-        );
+      localStorage.setItem(
+        "pendingBooking",
+        JSON.stringify({
+          topic,
+          requested_day: requestedDay,
+          requested_time: requestedTime,
+          session_date: requestedDay,
+          session_time: requestedTime,
+        })
+      );
 
-        window.location.href = "/create-account";
-        return;
-      }
+      window.location.href = "/create-account";
+      return;
+    }
 
     const { data: availableSlots, error: availabilityError } = await supabase
       .from("coach_availability")
@@ -157,83 +180,120 @@ export default function BookingPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white px-6 py-8 text-slate-950">
-      <section className="mx-auto max-w-3xl">
-        <a href="/learner/quick-match" className="text-sm font-medium text-slate-500">
-          ← Back
-        </a>
+    <main className="min-h-screen overflow-hidden bg-[#030807] px-4 py-4 text-white">
+      <section className="relative mx-auto min-h-[calc(100vh-2rem)] max-w-6xl overflow-hidden rounded-[32px] border border-white/10 bg-[radial-gradient(circle_at_15%_85%,rgba(57,223,74,0.18),transparent_32%),linear-gradient(135deg,#06100f_0%,#030807_55%,#020403_100%)] p-6 shadow-2xl md:p-10">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:44px_44px] opacity-30" />
 
-        <div className="mt-10">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">
-            Step 4
-          </p>
+        <div className="relative z-10 mx-auto max-w-5xl">
+          <a href="/" className="mb-10 inline-flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#38e34d] shadow-[0_0_25px_rgba(56,227,77,0.55)]">
+              <img
+                src="/img/prueba1-recortada-negro.png"
+                alt="Binolin"
+                className="h-7 w-7 object-contain"
+              />
+            </div>
+            <span className="text-2xl font-black tracking-tight">Binolin</span>
+          </a>
 
-          <h1 className="text-4xl font-bold tracking-tight">
-            When do you want to practice?
-          </h1>
-
-          <p className="mt-4 text-lg text-slate-600">
-            Binolin will automatically match you with an available coach.
-          </p>
-        </div>
-
-        <div className="mt-10 space-y-6 rounded-3xl border border-slate-200 p-6">
-          <div>
-            <label className="mb-2 block font-medium">Topic</label>
-            <select
-              value={topic}
-              onChange={(e) => setTopic(e.target.value)}
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3"
-            >
-              {topics.map((item) => (
-                <option key={item}>{item}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="grid gap-5 sm:grid-cols-2">
-            <div>
-              <label className="mb-2 block font-medium">Day</label>
-              <select
-                value={requestedDay}
-                onChange={(e) => setRequestedDay(e.target.value)}
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3"
-              >
-                {days.map((day) => (
-                  <option key={day}>{day}</option>
-                ))}
-              </select>
+          <div className="grid min-h-[650px] gap-10 lg:grid-cols-[360px_1fr]">
+            <div className="relative hidden lg:block">
+              <img
+                src="/img/fase-4.png"
+                alt="Booking"
+                className="absolute bottom-0 left-0 w-[360px] object-contain drop-shadow-[0_20px_45px_rgba(0,255,120,0.28)]"
+              />
             </div>
 
             <div>
-              <label className="mb-2 block font-medium">Time</label>
-              <select
-                value={requestedTime}
-                onChange={(e) => setRequestedTime(e.target.value)}
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3"
+              <a
+                href="/learner/quick-match"
+                className="text-sm font-semibold text-white/55 hover:text-white"
               >
-                {times.map((time) => (
-                  <option key={time}>{time}</option>
-                ))}
-              </select>
+                ← Back
+              </a>
+
+              <div className="mt-10">
+                <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#39df4a]">
+                  Step 4
+                </p>
+
+                <h1 className="text-5xl font-black tracking-tight">
+                  When do you want to practice?
+                </h1>
+
+                <p className="mt-4 text-lg leading-8 text-white/60">
+                  Binolin will automatically match you with an available coach.
+                </p>
+              </div>
+
+              <div className="mt-10 space-y-6 rounded-[32px] border border-white/10 bg-white/[0.04] p-7 shadow-2xl backdrop-blur">
+                <div>
+                  <label className="mb-2 block text-sm font-bold text-white/80">
+                    Topic
+                  </label>
+                  <select
+                    value={topic}
+                    onChange={(e) => setTopic(e.target.value)}
+                    className="w-full rounded-2xl border border-white/10 bg-[#06100f] px-4 py-4 text-white outline-none focus:border-[#39df4a]/70"
+                  >
+                    {topics.map((item) => (
+                      <option key={item}>{item}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label className="mb-2 block text-sm font-bold text-white/80">
+                      Day
+                    </label>
+                    <select
+                      value={requestedDay}
+                      onChange={(e) => setRequestedDay(e.target.value)}
+                      className="w-full rounded-2xl border border-white/10 bg-[#06100f] px-4 py-4 text-white outline-none focus:border-[#39df4a]/70"
+                    >
+                      {days.map((day) => (
+                        <option key={day}>{day}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="mb-2 block text-sm font-bold text-white/80">
+                      Time
+                    </label>
+                    <select
+                      value={requestedTime}
+                      onChange={(e) => setRequestedTime(e.target.value)}
+                      className="w-full rounded-2xl border border-white/10 bg-[#06100f] px-4 py-4 text-white outline-none focus:border-[#39df4a]/70"
+                    >
+                      {times.map((time) => (
+                        <option key={time}>{time}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-[#39df4a]/20 bg-[#39df4a]/10 p-5">
+                  <p className="font-black text-white">How matching works</p>
+                  <p className="mt-2 leading-7 text-white/60">
+                    We search for coaches available at your selected time and
+                    assign one automatically. If no coach is available, your
+                    request will stay pending.
+                  </p>
+                </div>
+
+                <button
+                  onClick={handleFindCoach}
+                  disabled={loading}
+                  className="w-full rounded-2xl bg-[#39df4a] px-6 py-4 font-black text-[#031006] shadow-[0_0_28px_rgba(57,223,74,0.45)] hover:bg-[#50ef5f] disabled:bg-white/25 disabled:text-white/60 disabled:shadow-none"
+                >
+                  {loading ? "Finding your coach..." : "Find my coach"}
+                </button>
+              </div>
             </div>
           </div>
-
-          <div className="rounded-2xl bg-slate-50 p-5">
-            <p className="font-semibold">How matching works</p>
-            <p className="mt-2 text-slate-600">
-              We search for coaches available at your selected time and assign
-              one automatically. If no coach is available, your request will stay pending.
-            </p>
-          </div>
-
-          <button
-            onClick={handleFindCoach}
-            disabled={loading}
-            className="w-full rounded-2xl bg-slate-950 px-6 py-4 font-semibold text-white disabled:opacity-50"
-          >
-            {loading ? "Finding your coach..." : "Find my coach"}
-          </button>
         </div>
       </section>
     </main>

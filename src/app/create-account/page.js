@@ -102,78 +102,124 @@ function CreateAccountContent() {
   }
 
   return (
-    <main className="min-h-screen bg-white px-6 py-8 text-slate-950">
-      <section className="mx-auto max-w-3xl">
+  <main className="min-h-screen overflow-hidden bg-[#030807] px-4 py-4 text-white">
+    <section className="relative mx-auto grid min-h-[calc(100vh-2rem)] max-w-7xl overflow-hidden rounded-[32px] border border-white/10 bg-[radial-gradient(circle_at_80%_30%,rgba(57,223,74,0.22),transparent_32%),linear-gradient(135deg,#06100f_0%,#030807_55%,#020403_100%)] shadow-2xl lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:44px_44px] opacity-30" />
+
+      <div className="relative z-10 hidden flex-col justify-between p-10 lg:flex">
         <a
-          href={isCoach ? "/coach" : "/learner/booking"}
-          className="text-sm font-medium text-slate-500"
+          href={isCoach ? "/" : "/learner/booking"}
+          className="text-sm font-semibold text-white/70 hover:text-white"
         >
-          ← Back
+          ← Volver
         </a>
 
-        <div className="mt-10">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">
+        <div>
+          <div className="mb-8 h-1 w-44 rounded-full bg-gradient-to-r from-[#39df4a] to-transparent" />
+
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#39df4a]">
             {isCoach ? "Coach account" : "Step 5"}
           </p>
 
-          <h1 className="text-4xl font-bold tracking-tight">
-            {isCoach ? "Create coach account" : "Create your Binolin account"}
+          <h1 className="max-w-md text-5xl font-black tracking-tight">
+            {isCoach ? "Crear cuenta de coach" : "Crear tu cuenta"}
           </h1>
 
-          <p className="mt-4 text-lg text-slate-600">
-            Create your account for MVP testing.
+          <p className="mt-4 max-w-sm text-lg leading-8 text-white/60">
+            Únete a Binolin y comienza tu camino para practicar inglés con personas reales.
           </p>
         </div>
 
-        <form
-          onSubmit={handleCreateAccount}
-          className="mt-10 space-y-6 rounded-3xl border border-slate-200 p-6"
-        >
-          <div>
-            <label className="mb-2 block font-medium">Full name</label>
-            <input
-              type="text"
-              placeholder="Your name"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none"
-            />
-          </div>
+        <img
+          src="/img/alien-tom.png"
+          alt="Binolin alien"
+          className="w-[340px] object-contain drop-shadow-[0_20px_45px_rgba(0,255,120,0.35)]"
+        />
+      </div>
 
-          <div>
-            <label className="mb-2 block font-medium">Email</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none"
-            />
-          </div>
-
-          <div>
-            <label className="mb-2 block font-medium">Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              minLength={6}
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none"
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full rounded-2xl bg-slate-950 px-6 py-4 font-semibold text-white disabled:opacity-50"
+      <div className="relative z-10 flex items-center justify-center p-6 md:p-10">
+        <div className="w-full max-w-lg rounded-[32px] border border-white/10 bg-white/[0.04] p-7 shadow-2xl backdrop-blur md:p-9">
+          <a
+            href={isCoach ? "/" : "/learner/booking"}
+            className="mb-8 inline-block text-sm font-semibold text-white/60 hover:text-white lg:hidden"
           >
-            {loading ? "Creating account..." : "Create account"}
-          </button>
-        </form>
-      </section>
-    </main>
-  );
+            ← Volver
+          </a>
+
+          <div>
+            <h2 className="text-4xl font-black tracking-tight">
+              {isCoach ? "Crear cuenta de coach" : "Crear tu cuenta"}
+            </h2>
+            <p className="mt-3 text-white/55">
+              {isCoach
+                ? "Crea tu perfil para comenzar a recibir sesiones."
+                : "Únete a Binolin y empieza tu práctica."}
+            </p>
+          </div>
+
+          <form onSubmit={handleCreateAccount} className="mt-8 space-y-5">
+            <div>
+              <label className="mb-2 block text-sm font-bold text-white/80">
+                Nombre completo
+              </label>
+              <input
+                type="text"
+                placeholder="Tu nombre"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                className="w-full rounded-2xl border border-white/10 bg-[#06100f] px-4 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#39df4a]/70 focus:shadow-[0_0_0_4px_rgba(57,223,74,0.12)]"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-bold text-white/80">
+                Email
+              </label>
+              <input
+                type="email"
+                placeholder="tu@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="w-full rounded-2xl border border-white/10 bg-[#06100f] px-4 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#39df4a]/70 focus:shadow-[0_0_0_4px_rgba(57,223,74,0.12)]"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-bold text-white/80">
+                Contraseña
+              </label>
+              <input
+                type="password"
+                placeholder="••••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                minLength={6}
+                className="w-full rounded-2xl border border-white/10 bg-[#06100f] px-4 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#39df4a]/70 focus:shadow-[0_0_0_4px_rgba(57,223,74,0.12)]"
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full rounded-2xl bg-[#39df4a] px-6 py-4 font-black text-[#031006] shadow-[0_0_28px_rgba(57,223,74,0.45)] transition hover:bg-[#50ef5f] disabled:opacity-50"
+            >
+              {loading ? "Creando cuenta..." : "Crear cuenta"}
+            </button>
+          </form>
+
+          <p className="mt-7 text-center text-sm text-white/45">
+            ¿Ya tienes cuenta?{" "}
+            <a href="/sign-in" className="font-bold text-[#39df4a]">
+              Inicia sesión
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+);
 }
 
 export default function CreateAccountPage() {
