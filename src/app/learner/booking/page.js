@@ -197,11 +197,11 @@ export default function BookingPage() {
           </a>
 
           <div className="grid min-h-[650px] gap-10 lg:grid-cols-[360px_1fr]">
-            <div className="relative hidden lg:block">
+            <div className="relative block min-h-[260px]">
               <img
                 src="/img/fase-4.png"
-                alt="Booking"
-                className="absolute bottom-0 left-0 w-[360px] object-contain drop-shadow-[0_20px_45px_rgba(0,255,120,0.28)]"
+                alt="Binolin"
+                className="mx-auto w-[240px] object-contain drop-shadow-[0_20px_45px_rgba(0,255,120,0.28)] lg:w-[360px]"
               />
             </div>
 

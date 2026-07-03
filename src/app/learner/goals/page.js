@@ -100,11 +100,11 @@ export default function GoalsPage() {
               </div>
             </div>
 
-            <div className="hidden items-start justify-end pt-10 lg:flex">
+            <div className="flex items-start justify-end pt-10">
               <img
                 src="/img/fase-1.png"
                 alt="Binolin"
-                className="w-[360px] object-contain drop-shadow-[0_20px_45px_rgba(0,255,120,0.28)]"
+                className="mx-auto w-[240px] object-contain drop-shadow-[0_20px_45px_rgba(0,255,120,0.28)] lg:w-[360px]"
               />
             </div>
           </div>

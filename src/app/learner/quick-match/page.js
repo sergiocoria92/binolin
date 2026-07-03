@@ -17,12 +17,12 @@ export default function QuickMatchPage() {
           </a>
 
           <div className="grid gap-10 lg:grid-cols-[360px_1fr]">
-            <div className="hidden items-start justify-start pt-4 lg:flex">
+            <div className="flex items-start justify-start pt-4">
               <img
-                src="/img/fase-3.png"
-                alt="Quick match"
-                className="w-[360px] object-contain drop-shadow-[0_20px_45px_rgba(0,255,120,0.28)]"
-              />
+                  src="/img/fase-3.png"
+                  alt="Binolin"
+                  className="mx-auto w-[240px] object-contain drop-shadow-[0_20px_45px_rgba(0,255,120,0.28)] lg:w-[360px]"
+                />
             </div>
 
             <div>

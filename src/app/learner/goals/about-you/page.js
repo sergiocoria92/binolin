@@ -118,12 +118,12 @@ export default function AboutYouPage() {
 
             {/* RIGHT */}
 
-            <div className="hidden justify-end lg:flex">
+            <div className="flex justify-end">
 
               <img
                 src="/img/fase-2.png"
-                alt="About you"
-                className="w-[360px] object-contain drop-shadow-[0_20px_45px_rgba(0,255,120,0.28)]"
+                alt="Binolin"
+                className="mx-auto w-[240px] object-contain drop-shadow-[0_20px_45px_rgba(0,255,120,0.28)] lg:w-[360px]"
               />
 
             </div>
