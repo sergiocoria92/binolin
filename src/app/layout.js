@@ -15,7 +15,11 @@ export const metadata = {
   title: "Binolin",
   description: "Practice English with real coaches.",
   icons: {
-    icon: "/icon.png",
+    icon: [
+      { url: "/icon.png?v=2", type: "image/png" },
+    ],
+    shortcut: "/icon.png?v=2",
+    apple: "/icon.png?v=2",
   },
 };
 
