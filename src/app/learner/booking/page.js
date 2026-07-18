@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { supabase } from "@/lib/supabaseClient";
@@ -164,7 +164,7 @@ const content = {
   },
 };
 
-export default function BookingPage() {
+function BookingContent() {
   const [language, setLanguage] = useState("es");
   const [requestedDay, setRequestedDay] = useState("Monday");
   const [requestedTime, setRequestedTime] = useState("15:30");
@@ -491,5 +491,19 @@ export default function BookingPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+export default function BookingPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="grid min-h-screen place-items-center bg-[#030807] text-white">
+          <p className="text-white/60">Cargando...</p>
+        </main>
+      }
+    >
+      <BookingContent />
+    </Suspense>
   );
 }

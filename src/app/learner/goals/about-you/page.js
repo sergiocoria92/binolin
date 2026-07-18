@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import PublicNavbar from "../../../components/PublicNavbar";
@@ -107,7 +107,7 @@ const content = {
   },
 };
 
-export default function AboutYouPage() {
+function AboutYouContent() {
   const [language, setLanguage] = useState("es");
 
   const [nativeLanguage, setNativeLanguage] = useState("Spanish");
@@ -335,5 +335,19 @@ function RequirementCheckbox({ checked, onChange, label }) {
 
       <span className="text-sm leading-6 text-white/65">{label}</span>
     </label>
+  );
+}
+
+export default function AboutYouPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="grid min-h-screen place-items-center bg-[#030807] text-white">
+          <p className="text-white/60">Cargando...</p>
+        </main>
+      }
+    >
+      <AboutYouContent />
+    </Suspense>
   );
 }
