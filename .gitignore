@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Archivos temporales de procesamiento de videos
+recursos-originales/**/.venv/
+recursos-originales/**/frames/
+recursos-originales/**/frames_white/

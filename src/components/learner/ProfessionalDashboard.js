@@ -68,7 +68,7 @@ export default function ProfessionalDashboard({
           />
 
           <div className="px-5 py-6 sm:px-8 sm:py-8">
-            {/* PROGRESS */}
+            {/* OVERALL PROGRESS */}
             <section className="overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-950 via-indigo-900 to-violet-900 p-6 text-white shadow-xl sm:p-8">
               <div className="grid gap-8 lg:grid-cols-[1fr_auto]">
                 <div>
@@ -155,7 +155,9 @@ export default function ProfessionalDashboard({
               </div>
             </section>
 
+            {/* MAIN CONTENT */}
             <div className="mt-6 grid gap-6 xl:grid-cols-[1.5fr_1fr]">
+              {/* LEFT COLUMN */}
               <div className="space-y-6">
                 {/* NEXT SESSION */}
                 <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
@@ -284,7 +286,7 @@ export default function ProfessionalDashboard({
 
                 {/* QUICK MATCH */}
                 <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-5">
                     <div>
                       <p className="text-sm font-bold uppercase tracking-wider text-cyan-600">
                         Quick Match
@@ -314,10 +316,11 @@ export default function ProfessionalDashboard({
                 </section>
               </div>
 
+              {/* RIGHT COLUMN */}
               <div className="space-y-6">
                 {/* MEMBERSHIP */}
                 <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-4">
                     <div>
                       <p className="text-sm font-bold uppercase tracking-wider text-slate-400">
                         Membership
@@ -359,7 +362,7 @@ export default function ProfessionalDashboard({
                   </a>
                 </section>
 
-                {/* UPCOMING */}
+                {/* UPCOMING SESSIONS */}
                 <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
                   <p className="text-sm font-bold uppercase tracking-wider text-slate-400">
                     Upcoming sessions
@@ -425,7 +428,7 @@ export default function ProfessionalDashboard({
                   )}
                 </section>
 
-                {/* MAP */}
+                {/* PROGRESS MAP */}
                 <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
                   <p className="text-sm font-bold uppercase tracking-wider text-slate-400">
                     Progress map

@@ -80,34 +80,23 @@ export default function LearnerDashboardPage() {
         )
       `;
 
-      const { data: bookingData, error: bookingError } = await supabase
-        .from("bookings")
-        .select(bookingSelect)
-        .eq("learner_id", profileData.id)
-        .in("status", ["scheduled", "pending"])
-        .order("created_at", { ascending: false })
-        .limit(1)
-        .maybeSingle();
-
-      if (bookingError) {
-        console.error(bookingError);
-      }
-
-      setBooking(bookingData || null);
-
       const { data: activeData, error: activeError } = await supabase
         .from("bookings")
         .select(bookingSelect)
         .eq("learner_id", profileData.id)
         .in("status", ["scheduled", "pending"])
-        .order("created_at", { ascending: false });
+        .order("session_date", { ascending: true })
+        .order("session_time", { ascending: true });
 
       if (activeError) {
         console.error(activeError);
       }
 
-      setActiveBookings(activeData || []);
-      setUpcomingBookings(activeData || []);
+      const normalizedBookings = activeData || [];
+
+      setActiveBookings(normalizedBookings);
+      setUpcomingBookings(normalizedBookings);
+      setBooking(normalizedBookings[0] || null);
     } catch (error) {
       console.error("Dashboard error:", error);
       alert("The dashboard could not be loaded.");
@@ -162,19 +151,14 @@ export default function LearnerDashboardPage() {
       return;
     }
 
-    setActiveBookings((current) =>
-      current.filter((item) => item.id !== bookingId)
+    const remainingBookings = activeBookings.filter(
+      (item) => item.id !== bookingId
     );
 
-    setUpcomingBookings((current) =>
-      current.filter((item) => item.id !== bookingId)
-    );
+    setActiveBookings(remainingBookings);
+    setUpcomingBookings(remainingBookings);
 
     if (booking?.id === bookingId) {
-      const remainingBookings = activeBookings.filter(
-        (item) => item.id !== bookingId
-      );
-
       setBooking(remainingBookings[0] || null);
     }
   }
@@ -237,19 +221,14 @@ export default function LearnerDashboardPage() {
       coins: newCoins,
     }));
 
-    setActiveBookings((current) =>
-      current.filter((item) => item.id !== bookingId)
+    const remainingBookings = activeBookings.filter(
+      (item) => item.id !== bookingId
     );
 
-    setUpcomingBookings((current) =>
-      current.filter((item) => item.id !== bookingId)
-    );
+    setActiveBookings(remainingBookings);
+    setUpcomingBookings(remainingBookings);
 
     if (booking?.id === bookingId) {
-      const remainingBookings = activeBookings.filter(
-        (item) => item.id !== bookingId
-      );
-
       setBooking(remainingBookings[0] || null);
     }
   }

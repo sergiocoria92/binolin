@@ -232,46 +232,52 @@ export default function Home() {
     },
   ];
 
-  return (
-    <main className="min-h-screen bg-[#030807] px-4 py-4 text-white">
-      <section className="relative mx-auto max-w-7xl overflow-hidden rounded-[32px] border border-white/10 bg-[radial-gradient(circle_at_70%_15%,rgba(45,255,85,0.18),transparent_30%),linear-gradient(135deg,#06100f_0%,#030807_55%,#020403_100%)] px-6 py-6 shadow-2xl md:px-10">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:44px_44px] opacity-30" />
-        <PublicNavbar
-          language={language}
-          setLanguage={setLanguage}
-          signInText={t.signIn}
-          startText={t.start}
-          howText={t.nav1}
-          partnersText={t.nav2}
-          pricingText={t.nav3}
-        />
+    return (
+  <main className="min-h-screen px-4 py-4">
+    {/* Contenedor principal de Binolin..  */}
+
+    <section
+        className="relative w-full overflow-hidden bg-transparent" /* esto fue para el color de fondo  */
+      >
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:44px_44px] opacity-30" />
+
+      <PublicNavbar
+        language={language}
+        setLanguage={setLanguage}
+        signInText={t.signIn}
+        startText={t.start}
+        howText={t.nav1}
+        partnersText={t.nav2}
+        pricingText={t.nav3}
+      />
 
         {/* PORTADA */}
-        <div className="relative z-10 grid min-h-[760px] items-center gap-10 pb-12 pt-12 lg:grid-cols-[1fr_0.95fr] lg:pb-16 lg:pt-4">
+ 
+        {/* PORTADA */}
+        <div className="binolin-page relative z-10 grid min-h-[760px] items-center gap-10 pb-12 pt-12 lg:grid-cols-[1fr_0.95fr] lg:pb-16 lg:pt-4">
           <div>
-            <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-semibold text-white/75 backdrop-blur">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#39df4a] shadow-[0_0_14px_rgba(57,223,74,0.9)]" />
+            <div className="binolin-badge mb-7 inline-flex items-center gap-3 rounded-full px-4 py-2 text-sm font-semibold">
+              <span className="binolin-status-dot h-2.5 w-2.5 rounded-full" />
               {t.badge}
             </div>
 
-            <h1 className="max-w-2xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
+            <h1 className="binolin-heading max-w-2xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
               {t.title1}
               <br />
-
-              <span className="text-[#39df4a]">{t.title2}</span>
+              <span className="binolin-accent">{t.title2}</span>
             </h1>
 
-            <p className="mt-7 max-w-xl text-lg leading-8 text-white/65">
+            <p className="binolin-description mt-7 max-w-xl text-lg leading-8">
               {t.description}
             </p>
 
             {/* LEMA PRINCIPAL */}
-            <div className="mt-7 max-w-2xl border-l-4 border-[#39df4a] pl-5">
-              <p className="text-lg font-black leading-7 text-white md:text-xl">
+            <div className="binolin-accent-border mt-7 max-w-2xl border-l-4 pl-5">
+              <p className="binolin-heading text-lg font-black leading-7 md:text-xl">
                 {t.mainPromise}
               </p>
 
-              <p className="mt-2 text-sm leading-6 text-white/55">
+              <p className="binolin-description mt-2 text-sm leading-6">
                 {t.mainPromiseText}
               </p>
             </div>
@@ -279,59 +285,60 @@ export default function Home() {
             <div className="mt-9 flex max-w-xl flex-col gap-4 sm:flex-row">
               <Link
                 href="/learner/goals"
-                className="rounded-2xl bg-[#39df4a] px-7 py-4 text-center font-extrabold text-[#031006] shadow-[0_0_28px_rgba(57,223,74,0.48)] transition hover:bg-[#50ef5f]"
+                className="binolin-primary-btn rounded-2xl px-7 py-4 text-center font-extrabold"
               >
                 {t.studentButton}
               </Link>
 
               <Link
                 href="/conversation-partners"
-                className="rounded-2xl border border-white/20 bg-white/5 px-7 py-4 text-center font-extrabold text-white transition hover:bg-white/10"
+                className="binolin-secondary-btn rounded-2xl px-7 py-4 text-center font-extrabold"
               >
                 {t.speakerButton}
               </Link>
             </div>
           </div>
 
-          {/* PERSONAJE */}
-          <div className="relative mx-auto flex h-[420px] w-full max-w-[560px] items-center justify-center lg:h-[620px]">
-            <div className="absolute h-[350px] w-[350px] rounded-full border border-[#53ff68]/20 bg-[#39df4a]/5 sm:h-[440px] sm:w-[440px] lg:h-[520px] lg:w-[520px]" />
-
-            <div className="absolute h-[270px] w-[270px] rounded-full bg-[#39df4a]/10 backdrop-blur-sm sm:h-[340px] sm:w-[340px] lg:h-[390px] lg:w-[390px]" />
-
-            <div className="absolute h-[360px] w-[360px] rounded-full bg-[#39df4a]/10 blur-3xl sm:h-[470px] sm:w-[470px] lg:h-[560px] lg:w-[560px]" />
-
-            <img
-              src="/img/alien-tom.png"
-              alt="Personaje de Binolin"
-              className="relative z-20 h-[350px] object-contain drop-shadow-[0_20px_45px_rgba(0,255,120,0.35)] lg:h-[520px]"
-            />
-
-            <div className="absolute bottom-5 right-0 z-30 rounded-3xl border border-white/10 bg-[#1f612d]/90 px-6 py-4 text-lg font-bold text-white backdrop-blur sm:bottom-16 sm:px-8 sm:py-5 sm:text-xl">
-              {t.bubble}
-            </div>
+          {/* AQUI ESTA LA ANIMACION*/}
+          
+          {/* ANIMACIÓN PRINCIPAL DE BINOLIN */}
+          <div className="binolin-video-container relative mx-auto flex h-[420px] w-full max-w-[560px] items-center justify-center lg:h-[620px]">
+            <video
+              className="binolin-hero-video"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+            >
+              <source
+                src="/videos/binolin-animation2-v2.webm"
+                type="video/webm"
+              />
+              Tu navegador no soporta videos HTML5.
+            </video>
           </div>
         </div>
 
+
         {/* CASOS DE USO */}
-        <section className="relative z-10 border-t border-white/10 py-20">
+        <section className="binolin-page binolin-section-divider relative z-10 border-t py-20">
           <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
             <div>
-              <p className="text-xs font-black tracking-[0.28em] text-[#39df4a]">
+              <p className="binolin-accent text-xs font-black tracking-[0.28em]">
                 {t.situationsBadge}
               </p>
 
-              <h2 className="mt-5 text-4xl font-black leading-[1] tracking-tight md:text-6xl">
+              <h2 className="binolin-heading mt-5 text-4xl font-black leading-[1] tracking-tight md:text-6xl">
                 {t.situationsTitle1}
                 <br />
-
-                <span className="text-[#39df4a]">
+                <span className="binolin-accent">
                   {t.situationsTitle2}
                 </span>
               </h2>
             </div>
 
-            <p className="max-w-2xl text-lg leading-8 text-white/60">
+            <p className="binolin-description max-w-2xl text-lg leading-8">
               {t.situationsDescription}
             </p>
           </div>
@@ -340,37 +347,37 @@ export default function Home() {
             {situations.map((situation) => (
               <article
                 key={situation.title}
-                className="group rounded-[26px] border border-white/10 bg-[#07110f]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#39df4a]/35 hover:bg-[#0a1713]"
+                className="binolin-card group rounded-[26px] p-6"
               >
-                <div className="grid h-14 w-14 place-items-center rounded-full bg-[#39df4a]/15 text-2xl transition group-hover:bg-[#39df4a]">
+                <div className="binolin-icon-bg grid h-14 w-14 place-items-center rounded-full text-2xl transition">
                   {situation.icon}
                 </div>
 
-                <h3 className="mt-6 text-xl font-black leading-7">
+                <h3 className="binolin-heading mt-6 text-xl font-black leading-7">
                   {situation.title}
                 </h3>
 
-                <p className="mt-4 text-sm leading-7 text-white/55">
+                <p className="binolin-description mt-4 text-sm leading-7">
                   {situation.description}
                 </p>
               </article>
             ))}
           </div>
 
-          <div className="mt-8 flex flex-col items-start justify-between gap-6 rounded-[26px] border border-[#39df4a]/25 bg-[linear-gradient(135deg,rgba(57,223,74,0.13),rgba(255,255,255,0.025))] p-7 md:flex-row md:items-center md:p-9">
+          <div className="binolin-callout mt-8 flex flex-col items-start justify-between gap-6 rounded-[26px] p-7 md:flex-row md:items-center md:p-9">
             <div>
-              <p className="text-sm leading-6 text-white/55">
+              <p className="binolin-description text-sm leading-6">
                 {t.situationsCallout}
               </p>
 
-              <p className="mt-1 text-xl font-black text-white md:text-2xl">
+              <p className="binolin-heading mt-1 text-xl font-black md:text-2xl">
                 {t.situationsCalloutStrong}
               </p>
             </div>
 
             <Link
               href="/learner/goals"
-              className="shrink-0 rounded-2xl bg-[#39df4a] px-7 py-4 text-center font-black text-[#031006] shadow-[0_0_25px_rgba(57,223,74,0.3)] transition hover:bg-[#50ef5f]"
+              className="binolin-primary-btn shrink-0 rounded-2xl px-7 py-4 text-center font-black"
             >
               {t.situationButton}
             </Link>
@@ -378,22 +385,21 @@ export default function Home() {
         </section>
 
         {/* DIFERENCIADOR */}
-        <section className="relative z-10 border-t border-white/10 py-20">
+        <section className="binolin-page binolin-section-divider relative z-10 border-t py-20">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="text-xs font-black tracking-[0.28em] text-[#39df4a]">
+            <p className="binolin-accent text-xs font-black tracking-[0.28em]">
               {t.differenceBadge}
             </p>
 
-            <h2 className="mt-5 text-4xl font-black leading-[1.05] tracking-tight md:text-6xl">
+            <h2 className="binolin-heading mt-5 text-4xl font-black leading-[1.05] tracking-tight md:text-6xl">
               {t.differenceTitle1}
               <br />
-
-              <span className="text-[#39df4a]">
+              <span className="binolin-accent">
                 {t.differenceTitle2}
               </span>
             </h2>
 
-            <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-white/60">
+            <p className="binolin-description mx-auto mt-7 max-w-3xl text-lg leading-8">
               {t.differenceDescription}
             </p>
           </div>
@@ -402,15 +408,17 @@ export default function Home() {
             {features.map((feature) => (
               <article
                 key={feature.title}
-                className="rounded-[24px] border border-white/10 bg-white/[0.035] p-6"
+                className="binolin-card rounded-[24px] p-6"
               >
-                <div className="grid h-12 w-12 place-items-center rounded-full bg-[#39df4a] text-xl font-black text-[#031006] shadow-[0_0_20px_rgba(57,223,74,0.25)]">
+                <div className="binolin-icon-bg grid h-12 w-12 place-items-center rounded-full text-xl font-black">
                   {feature.icon}
                 </div>
 
-                <h3 className="mt-5 text-lg font-black">{feature.title}</h3>
+                <h3 className="binolin-heading mt-5 text-lg font-black">
+                  {feature.title}
+                </h3>
 
-                <p className="mt-3 text-sm leading-7 text-white/55">
+                <p className="binolin-description mt-3 text-sm leading-7">
                   {feature.description}
                 </p>
               </article>
@@ -419,29 +427,29 @@ export default function Home() {
         </section>
 
         {/* LLAMADO FINAL */}
-        <section className="relative z-10 mb-4 overflow-hidden rounded-[30px] border border-[#39df4a]/25 bg-[radial-gradient(circle_at_50%_0%,rgba(57,223,74,0.2),transparent_58%),#06100d] px-7 py-16 text-center md:px-12">
-          <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-[#39df4a]/10 blur-3xl" />
+        <section className="binolin-page binolin-final-cta relative z-10 mb-4 overflow-hidden rounded-[30px] px-7 py-16 text-center md:px-12">
+          <div className="binolin-final-glow pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full" />
 
           <div className="relative z-10">
-            <h2 className="mx-auto max-w-4xl text-3xl font-black leading-tight md:text-5xl">
+            <h2 className="binolin-heading mx-auto max-w-4xl text-3xl font-black leading-tight md:text-5xl">
               {t.finalTitle}
             </h2>
 
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
+            <p className="binolin-description mx-auto mt-5 max-w-2xl text-base leading-8 md:text-lg">
               {t.finalText}
             </p>
 
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
               <Link
                 href="/learner/goals"
-                className="rounded-2xl bg-[#39df4a] px-8 py-4 font-black text-[#031006] shadow-[0_0_28px_rgba(57,223,74,0.4)] transition hover:bg-[#50ef5f]"
+                className="binolin-primary-btn rounded-2xl px-8 py-4 font-black"
               >
                 {t.finalButton}
               </Link>
 
               <Link
                 href="/how-it-works"
-                className="rounded-2xl border border-white/15 bg-white/5 px-8 py-4 font-black text-white transition hover:bg-white/10"
+                className="binolin-secondary-btn rounded-2xl px-8 py-4 font-black"
               >
                 {t.finalSecondary}
               </Link>
